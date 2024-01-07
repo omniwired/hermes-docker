@@ -1,0 +1,203 @@
+[global]
+log_level = "info"
+
+[mode.clients]
+enabled = true
+refresh = true
+misbehaviour = true
+
+[mode.connections]
+enabled = false
+
+[mode.channels]
+enabled = false
+
+[mode.packets]
+enabled = true
+clear_interval = 100
+clear_on_start = true
+tx_confirmation = false
+auto_register_counterparty_payee = false
+
+[rest]
+enabled = true
+host = "127.0.0.1"
+port = 3000
+
+[telemetry]
+enabled = true
+host = "127.0.0.1"
+port = 3001
+
+[telemetry.buckets.latency_submitted]
+start = 500
+end = 20000
+buckets = 10
+
+[telemetry.buckets.latency_confirmed]
+start = 1000
+end = 30000
+buckets = 10
+
+[[chains]]
+id = "noble-1"
+type = "CosmosSdk"
+rpc_addr = "hhttps://noble-rpc.polkachu.com/"
+grpc_addr = "https://noble-grpc.polkachu.com/"
+rpc_timeout = "10s"
+trusted_node = false
+account_prefix = "noble"
+key_name = "noble"
+key_store_type = "Test"
+store_prefix = "ibc"
+default_gas = 100000
+max_gas = 400000
+gas_multiplier = 1.1
+max_msg_num = 30
+max_tx_size = 180000
+max_grpc_decoding_size = 33554432
+clock_drift = "5s"
+max_block_time = "30s"
+ccv_consumer_chain = false
+memo_prefix = ""
+sequential_batch_tx = false
+
+[chains.event_source]
+mode = "push"
+url = "wss://noble-rpc.polkachu.com/websocket"
+batch_delay = "500ms"
+
+[chains.trust_threshold]
+numerator = "1"
+denominator = "3"
+
+[chains.gas_price]
+price = 0.0
+denom = "uusdc"
+
+[chains.packet_filter]
+policy = "allow"
+list = [
+    [
+    "transfer",
+    "channel-54",
+],
+]
+
+[chains.packet_filter.min_fees]
+
+[chains.address_type]
+derivation = "cosmos"
+
+[[chains]]
+id = "osmosis-1"
+type = "CosmosSdk"
+rpc_addr = "http://rpc-osmosis.freshstaking.com:31657/"
+grpc_addr = "https://osmosis-grpc.lavenderfive.com/"
+rpc_timeout = "10s"
+trusted_node = false
+account_prefix = "osmo"
+key_name = "keyosmosis"
+key_store_type = "Test"
+store_prefix = "ibc"
+default_gas = 100000
+max_gas = 400000
+gas_multiplier = 1.1
+max_msg_num = 30
+max_tx_size = 180000
+max_grpc_decoding_size = 33554432
+clock_drift = "5s"
+max_block_time = "30s"
+ccv_consumer_chain = false
+memo_prefix = ""
+sequential_batch_tx = false
+
+[chains.event_source]
+mode = "push"
+url = "ws://rpc-osmosis.freshstaking.com:31657/websocket"
+batch_delay = "500ms"
+
+[chains.trust_threshold]
+numerator = "1"
+denominator = "3"
+
+[chains.gas_price]
+price = 0.025
+denom = "uosmo"
+
+[chains.packet_filter]
+policy = "allow"
+list = [
+    [
+    "transfer",
+    "channel-750",
+],
+    [
+    "transfer",
+    "channel-362",
+],
+]
+
+[chains.packet_filter.min_fees]
+
+[chains.address_type]
+derivation = "cosmos"
+
+[[chains]]
+id = "teritori-1"
+type = "CosmosSdk"
+rpc_addr = "https://teritori-rpc.brocha.in/"
+grpc_addr = "https://teritori-grpc.lavenderfive.com/"
+rpc_timeout = "10s"
+trusted_node = false
+account_prefix = "tori"
+key_name = "keyteritori"
+key_store_type = "Test"
+store_prefix = "ibc"
+default_gas = 100000
+max_gas = 400000
+gas_multiplier = 1.1
+max_msg_num = 30
+max_tx_size = 180000
+max_grpc_decoding_size = 33554432
+clock_drift = "5s"
+max_block_time = "30s"
+ccv_consumer_chain = false
+memo_prefix = ""
+sequential_batch_tx = false
+
+[chains.event_source]
+mode = "push"
+url = "wss://teritori-rpc.brocha.in/websocket"
+batch_delay = "500ms"
+
+[chains.trust_threshold]
+numerator = "1"
+denominator = "3"
+
+[chains.gas_price]
+price = 0.25
+denom = "utori"
+
+[chains.packet_filter]
+policy = "allow"
+list = [
+    [
+    "transfer",
+    "channel-62",
+],
+    [
+    "transfer",
+    "channel-0",
+],
+]
+
+[chains.packet_filter.min_fees]
+
+[chains.address_type]
+derivation = "cosmos"
+
+[tracing_server]
+enabled = false
+port = 5555
+
