@@ -42,7 +42,7 @@ buckets = 10
 [[chains]]
 id = "noble-1"
 type = "CosmosSdk"
-rpc_addr = "hhttps://noble-rpc.polkachu.com/"
+rpc_addr = "https://noble-rpc.polkachu.com/"
 grpc_addr = "https://noble-grpc.polkachu.com/"
 rpc_timeout = "10s"
 trusted_node = false
